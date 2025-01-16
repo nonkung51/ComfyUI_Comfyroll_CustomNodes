@@ -72,13 +72,6 @@ def draw_masked_text(text_mask, text,
     # Calculate the size of the text plus padding for the tallest line
     max_text_width = 0
     max_text_height = 0
-    
-    # Add extra padding for Thai text
-    # This multiplier can be adjusted based on your needs
-    line_height_multiplier = 1.5  
-    
-    # Calculate text size with padding
-    line_height = int(font_size * line_height_multiplier)
 
     for line in text_lines:
         # Calculate the width and height of the current line
@@ -106,7 +99,7 @@ def draw_masked_text(text_mask, text,
         text_plot_y = align_text(align, image_height, text_height, text_pos_y, margins)
         
         # Add the current line to the text mask
-        draw.text((text_plot_x, text_plot_y), line, fill=255, font=font, spacing=line_height)
+        draw.text((text_plot_x, text_plot_y), line, fill=255, font=font)
         
         text_pos_y += max_text_height  # Move down for the next line
         sum_text_plot_y += text_plot_y     # Sum the y positions
